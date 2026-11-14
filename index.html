@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#F6EFE6; --sand:#EADFD2; --navy:#1C2B3A; --terra:#C2683F; --terra-dark:#A9552F; --line:#D9CBBB; --ink:#1C2B3A; --muted:#5B6672;
+  --cream:#FBF5F2; --sand:#F3E4DE; --navy:#2B1D2E; --terra:#B4637A; --terra-dark:#9A4E64; --line:#E8D6CF; --ink:#2B1D2E; --muted:#6E5F68; --blush:linear-gradient(135deg,#F8E9E3 0%,#EED8E2 100%);
   --display:'Playfair Display', Georgia, serif;
   --body:'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
@@ -28,14 +28,16 @@ a{color:inherit}
 h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;text-wrap:balance}
 h1 em,h2 em{font-style:italic;font-weight:700;color:var(--terra)}
 .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--terra)}
+.offer .kicker{color:#F2C4B0}
+.offer h2 em{color:#F2C4B0}
 .btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px;transition:background .2s}
 .btn:hover{background:var(--terra-dark)}
 .btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit}
-.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.btn.ghost:hover{background:rgba(43,29,46,.06)}
 /* bar + nav */
 .bar{background:var(--terra);color:#fff;text-align:center;font-size:14px;font-weight:500;padding:9px 16px}
 .bar a{text-decoration:none}
-nav{background:var(--navy);color:#fff}
+nav{background:#F8E9E3;color:var(--ink);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
 .logo{font-family:var(--display);font-size:22px;font-weight:800;text-decoration:none}
 .logo span{color:var(--terra);font-style:italic;font-weight:700}
@@ -43,12 +45,12 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .links a{text-decoration:none;opacity:.85}
 .links a:hover{opacity:1}
 /* hero */
-.hero{background:var(--navy);color:#fff;padding:48px 0 72px}
+.hero{background:var(--blush);color:var(--ink);padding:56px 0 80px}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,64px);margin:14px 0 18px}
-.hero p.lead{font-size:18px;opacity:.85;max-width:520px;margin-bottom:28px}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:520px;margin-bottom:28px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.photo{position:relative;border-radius:22px;overflow:hidden;border:2px solid var(--terra)}
+.photo{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(43,29,46,.18)}
 .photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .tag{position:absolute;left:14px;bottom:14px;background:var(--cream);color:var(--navy);font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px}
 /* sections */
@@ -57,7 +59,7 @@ section{padding:72px 0}
 .head h2{font-size:clamp(30px,4vw,44px);margin-top:10px}
 .head p{color:var(--muted);margin-top:10px;max-width:600px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 24px rgba(43,29,46,.05);padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
 .card h3{font-size:22px}
 .card p{color:var(--muted);font-size:15px;flex:1}
 .pill{align-self:flex-start;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--sand);color:var(--navy)}
@@ -70,13 +72,13 @@ a.card:hover{border-color:var(--terra)}
 .step h3{font-size:22px;margin:10px 0 6px}
 .step p{color:var(--muted);font-size:15px}
 .sand{background:var(--sand)}
-.offer{background:var(--navy);color:#fff;border-radius:24px;padding:44px;display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center}
+.offer{background:var(--navy);color:#fff;border-radius:28px;padding:44px;display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center}
 .offer h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 12px}
 .offer p{opacity:.85}
 .offer ul{list-style:none;margin-top:16px;display:grid;gap:8px}
 .offer li::before{content:"✓ ";color:var(--terra);font-weight:700}
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
-.about img{border-radius:20px;aspect-ratio:1/1;object-fit:cover;border:2px solid var(--terra)}
+.about img{border-radius:28px;aspect-ratio:4/5;object-fit:cover;box-shadow:0 24px 60px rgba(43,29,46,.15)}
 .about h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 14px}
 .about p{color:var(--muted);margin-bottom:12px}
 footer{background:var(--navy);color:#fff;padding:40px 0;font-size:14px}
@@ -120,7 +122,7 @@ footer a{text-decoration:none;opacity:.85;margin-right:16px}
       </div>
     </div>
     <div class="photo">
-      <img src="janvi.jpg" alt="Janvi, AI content creator, smiling at her desk">
+      <img src="janvi-hero.jpg" alt="Janvi smiling at her laptop in a bright office">
       <span class="tag">Made with Claude, for real life</span>
     </div>
   </div>
@@ -192,7 +194,7 @@ footer a{text-decoration:none;opacity:.85;margin-right:16px}
 
 <section id="about" class="sand">
   <div class="wrap about">
-    <img src="janvi.jpg" alt="Portrait of Janvi">
+    <img src="janvi-cozy.jpg" alt="Janvi at home">
     <div>
       <div class="kicker">About</div>
       <h2>Hi, I'm <em>Janvi.</em></h2>
