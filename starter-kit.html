@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Janvi AI Content Starter Kit | Janvijilla</title>
+<meta name="description" content="The Janvi AI Content Starter Kit: set up your own Claude content system, step by step. Join the free waitlist.">
+<meta property="og:title" content="Janvijilla | Post every day with Claude">
+<meta property="og:description" content="Plan, write and edit a week of posts with Claude. No camera. Just prompts.">
+<meta property="og:image" content="og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6EFE6; --sand:#EADFD2; --navy:#1C2B3A; --terra:#C2683F; --terra-dark:#A9552F; --line:#D9CBBB; --ink:#1C2B3A; --muted:#5B6672;
+  --display:'Playfair Display', Georgia, serif;
+  --body:'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.08;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:700;color:var(--terra)}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--terra)}
+.btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px;transition:background .2s}
+.btn:hover{background:var(--terra-dark)}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+/* bar + nav */
+.bar{background:var(--terra);color:#fff;text-align:center;font-size:14px;font-weight:500;padding:9px 16px}
+.bar a{text-decoration:none}
+nav{background:var(--navy);color:#fff}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+.logo{font-family:var(--display);font-size:22px;font-weight:800;text-decoration:none}
+.logo span{color:var(--terra);font-style:italic;font-weight:700}
+.links{display:flex;gap:22px;font-size:15px}
+.links a{text-decoration:none;opacity:.85}
+.links a:hover{opacity:1}
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:48px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,64px);margin:14px 0 18px}
+.hero p.lead{font-size:18px;opacity:.85;max-width:520px;margin-bottom:28px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.photo{position:relative;border-radius:22px;overflow:hidden;border:2px solid var(--terra)}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.tag{position:absolute;left:14px;bottom:14px;background:var(--cream);color:var(--navy);font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px}
+/* sections */
+section{padding:72px 0}
+.head{margin-bottom:32px}
+.head h2{font-size:clamp(30px,4vw,44px);margin-top:10px}
+.head p{color:var(--muted);margin-top:10px;max-width:600px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
+.card h3{font-size:22px}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.pill{align-self:flex-start;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--sand);color:var(--navy)}
+.pill.live{background:var(--terra);color:#fff}
+.card .go{font-weight:600;color:var(--terra)}
+a.card:hover{border-color:var(--terra)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{border-top:2px solid var(--terra);padding-top:18px}
+.step b{font-family:var(--display);font-size:42px;color:var(--terra);display:block;line-height:1}
+.step h3{font-size:22px;margin:10px 0 6px}
+.step p{color:var(--muted);font-size:15px}
+.sand{background:var(--sand)}
+.offer{background:var(--navy);color:#fff;border-radius:24px;padding:44px;display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center}
+.offer h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 12px}
+.offer p{opacity:.85}
+.offer ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.offer li::before{content:"✓ ";color:var(--terra);font-weight:700}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.about img{border-radius:20px;aspect-ratio:1/1;object-fit:cover;border:2px solid var(--terra)}
+.about h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 14px}
+.about p{color:var(--muted);margin-bottom:12px}
+footer{background:var(--navy);color:#fff;padding:40px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer a{text-decoration:none;opacity:.85;margin-right:16px}
+@media (max-width:860px){
+  .hero .wrap,.offer,.about{grid-template-columns:1fr}
+  .cards,.steps{grid-template-columns:1fr}
+  .links{display:none}
+  .offer{padding:28px}
+  .photo{max-width:420px}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+<div class="bar"><a href="/free-guide">🎁 Free guide: 30 days of post ideas · Get it free →</a></div>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="/">Janvi<span>jilla</span></a>
+    <div class="links">
+      <a href="/#start">Free guides</a>
+      <a href="/#system">The system</a>
+      <a href="/starter-kit">Starter Kit</a>
+      <a href="/#about">About</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Coming soon · Waitlist open</div>
+      <h1>The Janvi AI Content <em>Starter Kit</em></h1>
+      <p class="lead">Set up your own Claude content system, step by step. Plan, write and edit a week of posts in one sitting, even if you are brand new to AI.</p>
+      <div class="cta-row">
+        <a class="btn" href="/free-guide#get">Join the waitlist free</a>
+      </div>
+      <p style="margin-top:14px;font-size:14px;opacity:.7">You'll get the free 30-Day Idea Bank right away, and first access when the kit opens.</p>
+    </div>
+    <div class="photo">
+      <img src="janvi.jpg" alt="Janvi at her desk">
+      <span class="tag">Made with Claude, for real life</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Who it's for</div>
+      <h2>For anyone tired of asking <em>"what do I post today?"</em></h2>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Creators</h3><p>Post every day without filming every day.</p></div>
+      <div class="card"><h3>Small business owners</h3><p>Market your business in an hour a week, not every evening.</p></div>
+      <div class="card"><h3>Beginners</h3><p>No tech skills needed. Every step is explained simply.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sand">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">What's inside</div>
+      <h2>Your system, <em>ready to use</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Setup guide</h3><p>Teach Claude your brand once, step by step.</p></div>
+      <div class="step"><b>02</b><h3>Prompt pack</h3><p>Copy-paste prompts for hooks, scripts, carousels and captions.</p></div>
+      <div class="step"><b>03</b><h3>Weekly templates</h3><p>Plan, create, edit and schedule a full week in one sitting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="offer">
+      <div>
+        <h2>Be first in line</h2>
+        <p>Waitlist members hear first when the kit opens.</p>
+      </div>
+      <div><a class="btn" href="/free-guide#get">Join the waitlist free</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="https://www.instagram.com/janvijilla/">Instagram</a>
+      <a href="https://www.threads.net/@janvijilla">Threads</a>
+      <a href="https://www.instagram.com/janvi.ai.official/">Brand videos: @janvi.ai.official</a>
+    </div>
+    <div>© 2026 Janvijilla</div>
+  </div>
+</footer>
+
+</body>
+</html>
